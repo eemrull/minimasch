@@ -1,6 +1,11 @@
 import * as React from "react";
 import { useTheme } from "next-themes";
-import { Pencil2Icon, MoonIcon, SunIcon } from "@radix-ui/react-icons";
+import {
+  Pencil2Icon,
+  AvatarIcon,
+  MoonIcon,
+  SunIcon,
+} from "@radix-ui/react-icons";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "./theme-toggle";
 
@@ -21,7 +26,10 @@ export default function Header() {
         <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
           <div className="w-full flex-1 md:w-auto md:flex-none"></div>
           <nav className="flex items-center">
-            <a href="/"></a>
+            <a href="/profile"></a>
+            <Button variant="ghost" size="icon" className="h-9 w-9">
+              <AvatarIcon className="h-[1.2rem] w-[1.2rem]" />
+            </Button>
             <ModeToggle />
           </nav>
         </div>

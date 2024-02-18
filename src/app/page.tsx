@@ -13,10 +13,14 @@ export default function Home() {
       <div className="border-b">
         <div className="container flex-1 items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10">
           <Side />
-          <Button className="box-border">test</Button>
-          <FaceIcon />
-          <SunIcon />
-          <ImageIcon />
+          <div className="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
+            <div className="w-full mx-auto min-w-0">
+              <Button className="box-border">test</Button>
+              <FaceIcon />
+              <SunIcon />
+              <ImageIcon />
+            </div>
+          </div>
         </div>
       </div>
       <Footer />
