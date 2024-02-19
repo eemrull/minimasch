@@ -5,6 +5,7 @@ import { FaceIcon, ImageIcon, SunIcon } from "@radix-ui/react-icons";
 import Header from "./header";
 import Footer from "./footer";
 import Side from "./side";
+import Dashboard from "./dashboard";
 
 export default function Home() {
   return (
@@ -15,10 +16,7 @@ export default function Home() {
           <Side />
           <div className="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
             <div className="w-full mx-auto min-w-0">
-              <Button className="box-border">test</Button>
-              <FaceIcon />
-              <SunIcon />
-              <ImageIcon />
+              <Dashboard />
             </div>
           </div>
         </div>

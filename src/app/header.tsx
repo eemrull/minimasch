@@ -6,8 +6,8 @@ import {
   MoonIcon,
   SunIcon,
 } from "@radix-ui/react-icons";
-import { Button } from "@/components/ui/button";
 import { ModeToggle } from "./theme-toggle";
+import Avatar from "./avatar";
 
 export default function Header() {
   return (
@@ -27,10 +27,8 @@ export default function Header() {
           <div className="w-full flex-1 md:w-auto md:flex-none"></div>
           <nav className="flex items-center">
             <a href="/profile"></a>
-            <Button variant="ghost" size="icon" className="h-9 w-9">
-              <AvatarIcon className="h-[1.2rem] w-[1.2rem]" />
-            </Button>
             <ModeToggle />
+            <Avatar />
           </nav>
         </div>
       </div>
