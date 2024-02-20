@@ -1,24 +1,72 @@
 import * as React from "react";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardFooter,
+  CardDescription,
+} from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import {
+  HomeIcon,
+  CalendarIcon,
+  TargetIcon,
+  Pencil2Icon,
+} from "@radix-ui/react-icons";
+import { Button } from "@/components/ui/button";
+import Footer from "./footer";
 
 export default function Side() {
   return (
-    <aside className="fixed top-14 z-30 -ml-2 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 md:sticky md:block">
-      <div className="relative overflow-hidden h-full py-6 pr-6 lg:py-8">
-        <div className="w-full">
-          <div className="pb-4"></div>
-          <h4 className="mb-1 rounded-md px-2 py-1 text-sm font-semibold">
-            Sidebar
-          </h4>
-          <div className="grid grid-flow-row auto-rows-max text-sm">
-            <a
-              className="group flex w-full items-center rounded-md border border-transparent px-2 py-1 hover:underline text-muted-foreground"
-              href="/test"
-            >
-              Test
-            </a>
+    <aside className="max-h-screen max-md:hidden flex justify-between">
+      <Card className="flex flex-col h-full">
+        <CardContent>
+          <CardHeader></CardHeader>
+          <div className="container flex h-auto max-w-screen-2xl pb-2 items-center">
+            <CardTitle className="r-6 items-center text-lg space-x-2 w-auto flex flex-col flex-1">
+              <a
+                href="/"
+                className="flex items-center space-x-2 text-lg font-bold"
+              >
+                <Pencil2Icon />
+                <span className="hidden font-bold sm:inline-block">
+                  minima/sch
+                </span>
+              </a>
+            </CardTitle>
           </div>
-        </div>
-      </div>
+          <Separator />
+          <CardDescription className="pt-2">
+            <nav className="flex flex-col flex-1 gap-2">
+              <a
+                className="py-1 text-sm px-2 rounded-lg flex flex-row gap-2 transition-colors items-center text-muted-foreground"
+                href="/dashboard"
+              >
+                <HomeIcon />
+                Home
+              </a>
+              <a
+                className="py-1 text-sm px-2 rounded-lg flex flex-row gap-2 transition-colors items-center text-foreground"
+                href="/dashboard"
+              >
+                <CalendarIcon />
+                Schedule
+              </a>
+              <a
+                className="py-1 text-sm px-2 rounded-lg flex flex-row gap-2 transition-colors items-center"
+                href="/dashboard"
+              >
+                <TargetIcon />
+                Results
+              </a>
+            </nav>
+          </CardDescription>
+          <CardFooter className="w-full h-full">
+            <Footer />
+          </CardFooter>
+        </CardContent>
+      </Card>
     </aside>
   );
 }

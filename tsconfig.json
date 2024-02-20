@@ -27,7 +27,9 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/app/scrap.js",
-    "src/lib/index.js"
-, "src/lib/server.js"  ],
+    "src/lib/index.js",
+    "src/lib/server.js",
+    "src/app/api/login/route.ts"
+  ],
   "exclude": ["node_modules"]
 }
