@@ -9,7 +9,6 @@ import { useEffect, useState } from "react";
 import * as React from "react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
-import axios from "axios";
 import {
   Card,
   CardContent,
@@ -27,11 +26,18 @@ import {
   FormField,
   FormItem,
   FormLabel,
+  FormMessage,
 } from "@/components/ui/form";
 
+const iium_cas =
+  "https://cas.iium.edu.my:8448/cas/login?service=https%3a%2f%2fimaluum.iium.edu.my%2fhome";
+
+const iium_login =
+  "https://cas.iium.edu.my:8448/cas/login?service=https%3a%2f%2fimaluum.iium.edu.my%2fhome?service=https%3a%2f%2fimaluum.iium.edu.my%2fhome";
+
 const FormSchema = z.object({
-  username: z.string().min(2, { message: "Username is too short" }),
-  password: z.string().min(2, { message: "Password is too short" }),
+  username: z.string().min(7, { message: "Matric Number must be 7 digits" }),
+  password: z.string().min(5, { message: "Password is too short" }),
   remember: z.boolean().default(false).optional(),
 });
 
@@ -50,38 +56,37 @@ const Login = () => {
 
   const onSubmit = async (data: z.infer<typeof FormSchema>) => {
     setIsLoading(true);
+
     try {
-      const response = await fetch("/api/login", {
+      const attempt = await fetch("/api/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
-          Referer:
-            "https://cas.iium.edu.my:8448/cas/login?service=https%3a%2f%2fimaluum.iium.edu.my%2fhome",
+          Referer: iium_cas,
         },
         body: JSON.stringify({
           username: data.username,
           password: data.password,
           execution: "e1s1",
-          eventID: "submit",
+          _eventId: "submit",
           geolocation: "",
         }),
       });
-
-      if (response.ok) {
-        console.log("Login successful");
-        router.replace("/dashboard");
+      if (attempt.ok) {
+        console.log("Authentication success");
+        router.push("/dashboard");
       } else {
-        console.error("Login failed. Unexpected status code:", response.status);
+        console.error("Authentication failed");
       }
     } catch (error) {
-      console.error("Login failed:", error);
+      console.error("Error:", error);
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <Card className="w-[350px]">
+    <Card className="w-[450px]">
       <CardHeader>
         <CardTitle>minima/sch</CardTitle>
         <CardDescription>an easy scheduler.</CardDescription>
@@ -90,7 +95,7 @@ const Login = () => {
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="grid w-full gap-4"
+            className="grid w-full gap-4 space-y-4"
           >
             <div className="flex flex-col space-y-1.5">
               <FormField
@@ -106,6 +111,7 @@ const Login = () => {
                         {...field}
                       />
                     </FormControl>
+                    <FormMessage />
                   </FormItem>
                 )}
               />
@@ -120,6 +126,7 @@ const Login = () => {
                     <FormControl>
                       <Input placeholder="******" type="password" {...field} />
                     </FormControl>
+                    <FormMessage />
                   </FormItem>
                 )}
               />
