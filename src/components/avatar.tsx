@@ -16,7 +16,7 @@ export default function Avatar() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon" className="h-9 w-9">
+        <Button variant="ghost" size="icon" className="h-9 w-9 hover:scale-110">
           <AvatarIcon className="h-[1.2rem] w-[1.2rem]" />
           <span className="sr-only">User menu</span>
         </Button>

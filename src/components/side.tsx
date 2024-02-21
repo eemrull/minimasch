@@ -14,7 +14,7 @@ import {
   TargetIcon,
   Pencil2Icon,
 } from "@radix-ui/react-icons";
-import { Button } from "@/components/ui/button";
+import Menu from "./list";
 import Footer from "./footer";
 
 export default function Side() {
@@ -24,48 +24,26 @@ export default function Side() {
         <CardContent>
           <CardHeader></CardHeader>
           <div className="container flex h-auto max-w-screen-2xl pb-2 items-center">
-            <CardTitle className="r-6 items-center text-lg space-x-2 w-auto flex flex-col flex-1">
+            <CardTitle className="r-6 items-center text-lg space-x-2 w-auto flex flex-col flex-1 hover:scale-110">
               <a
                 href="/"
                 className="flex items-center space-x-2 text-lg font-bold"
               >
                 <Pencil2Icon />
-                <span className="hidden font-bold sm:inline-block">
+                <span className="hidden font-bold sm:inline-block tracking-tight">
                   minima/sch
                 </span>
               </a>
             </CardTitle>
           </div>
           <Separator />
-          <CardDescription className="pt-2">
-            <nav className="flex flex-col flex-1 gap-2">
-              <a
-                className="py-1 text-sm px-2 rounded-lg flex flex-row gap-2 transition-colors items-center text-muted-foreground"
-                href="/dashboard"
-              >
-                <HomeIcon />
-                Home
-              </a>
-              <a
-                className="py-1 text-sm px-2 rounded-lg flex flex-row gap-2 transition-colors items-center text-foreground"
-                href="/dashboard"
-              >
-                <CalendarIcon />
-                Schedule
-              </a>
-              <a
-                className="py-1 text-sm px-2 rounded-lg flex flex-row gap-2 transition-colors items-center"
-                href="/dashboard"
-              >
-                <TargetIcon />
-                Results
-              </a>
-            </nav>
+          <CardDescription className="pt-6">
+            <Menu />
           </CardDescription>
-          <CardFooter className="w-full h-full">
-            <Footer />
-          </CardFooter>
         </CardContent>
+        <CardFooter className="items-end h-full">
+          <Footer />
+        </CardFooter>
       </Card>
     </aside>
   );
