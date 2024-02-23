@@ -1,13 +1,6 @@
 import React from "react";
-import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import {
-  HomeIcon,
-  CalendarIcon,
-  TargetIcon,
-  Pencil2Icon,
-} from "@radix-ui/react-icons";
-import { Button } from "@/components/ui/button";
+import { HomeIcon, CalendarIcon, TargetIcon } from "@radix-ui/react-icons";
 
 const items = [
   { title: "Home", icon: <HomeIcon />, path: "/dashboard" },

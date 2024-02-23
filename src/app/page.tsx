@@ -1,6 +1,4 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import Hero from "@/components/sections/hero";
 import Footer from "@/components/footer";
 
